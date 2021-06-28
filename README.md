@@ -6,7 +6,7 @@
 
 ![demo3.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8811becae81549dbbb882133eeab5426~tplv-k3u1fbpfcp-watermark.image)
 
-# 演示地址
+# 演示地址（vue版和react版一样）
 https://dark2017.github.io/vue-dark-photo.github.io/
 
 # react-dark-photo
@@ -16,34 +16,10 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 - 支持png、jpg、jpge、bmp、gif等常见图片格式
 - 支持查看多个图片
 - 开箱即用 只需传图片数据 轻便简单
-- GitHub地址：https://github.com/Dark2017/vue-dark-photo.git
+- GitHub地址：https://github.com/Dark2017/react-dark-photo
 
 同款组件vue：https://github.com/Dark2017/vue-dark-photo
 
-<!-- # 安装使用说明
-[![vue-dark-photo](https://nodei.co/npm/vue-dark-photo.png)](https://npmjs.com/package/vue-dark-photo)
-```
-npm i vue-dark-photo -->
-
-
-<!-- // 在入口（main.js）中引入并挂载
-import VDPhoto from 'vue-dark-photo'
-// 引入vue-dark-photo 样式
-import 'vue-dark-photo/lib/vue-dark-photo.css'
-
-Vue.use(VDPhoto) -->
-
-```
-
-```
-<!-- //若通过cdn引入 请引入以下链接 版本号自行调整
-https://cdn.jsdelivr.net/npm/vue-dark-photo@{verison}/lib/vue-dark-photo.umd.min.js
-https://cdn.jsdelivr.net/npm/vue-dark-photo@{verison}/lib/vue-dark-photo.css -->
-
-```
-# 示例
-
-```
 
 # api
 
