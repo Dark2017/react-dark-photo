@@ -1,0 +1,57 @@
+abbr[title] {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+.header-photo {
+  width: 100%;
+  .head-content {
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // 工具条
+  .tools-wrap {
+    .photo-tools {
+      display: flex;
+      height: inherit;
+      padding: 0 22px;
+
+      .icon {
+        color: #fff;
+        opacity: 0.5;
+        font-size: 26px;
+      }
+
+      & > abbr {
+        font-size: 20px;
+        cursor: pointer;
+        -webkit-app-region: no-drag;
+
+        &:not(:nth-of-type(1)) {
+          margin-left: 24px;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  // overflow: hidden;
+  text-align: center;
+  .img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+  }
+  .iframe {
+    max-width: 100%;
+    min-height: 500px;
+  }
+}
+
+@page {
+  size: auto; /* auto is the initial value */
+  margin: 0mm; /* this affects the margin in the printer settings */
+}
