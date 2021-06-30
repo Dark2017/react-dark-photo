@@ -29,7 +29,7 @@ class App extends React.Component{
   }
 
   render() {
-    const { showBox, imgArr } = this.state
+    const { showBox, imgArr, isAnimation } = this.state
     return (
       <div>
         <button onClick={this.open}>11</button>
@@ -38,6 +38,8 @@ class App extends React.Component{
           // imgData={imgData}
           imgArr={imgArr}
           close={this.close}
+          isAnimation={true}
+          isHint={true}
         />
       </div>
     )

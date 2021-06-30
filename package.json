@@ -5,7 +5,9 @@
   "license": "MIT",
   "author": "laijianghao",
   "keyword": "react-dark-photo",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/react-dark-photo.umd.js",
   "repository": {
     "type": "git",

@@ -1,0 +1,29 @@
+.msg {
+  position: relative;
+  overflow: hidden;
+  top: 200px;
+  margin: 0 auto;
+  max-width: 200px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  opacity: 0;
+  z-index: 2021;
+  animation: opacity 1.2s reverse linear;
+  -webkit-animation: opacity 1.2s reverse linear;
+  -moz-animation: opacity 1.2s reverse linear;
+}
+@keyframes opacity {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}

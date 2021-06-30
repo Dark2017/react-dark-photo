@@ -5,9 +5,11 @@ import print from "./utils/print";
 import { downloadFileByURL } from "./utils/download";
 import { suffix_photo_list, message_text } from "./utils/constart";
 import Windows from '../react-dark-photo/components/windows/app.jsx'
+import Messsage from '../react-dark-photo/components/message/app.jsx'
 
 class App extends React.Component {
   imgRef = React.createRef()
+  message = React.createRef()
 
   get currentImg() {
     const { imgData, imgArr } = this.props
@@ -50,11 +52,17 @@ class App extends React.Component {
     return !imgData && imgArr.length >= 2 && this.currentAction.nextCard
   }
 
+  get transition() {
+    const { isAnimation } = this.props
+    return isAnimation ? "all" : "none";
+  }
+
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			index: 0,
-			openAnime: false,
+			openAnime: true,
 			// 当前图片变换参数
 			activeImg: {
 				scale: 1,
@@ -89,6 +97,7 @@ class App extends React.Component {
 			});
 			this.reduction();
 		} else {
+      this.message.current.messageShow(message_text["first"])
 		}
 	};
 
@@ -100,9 +109,11 @@ class App extends React.Component {
 			index = index + 1;
 			this.setState({
 				index,
+        openAnime: false
 			});
 			this.reduction();
 		} else {
+      this.message.current.messageShow(message_text["last"])
 		}
 	};
 
@@ -241,8 +252,9 @@ class App extends React.Component {
 
   
 	render() {
-		const { activeImg } = this.state;
-    const { showBox, close } = this.props
+		const { activeImg, openAnime, extreme } = this.state;
+    const { showBox, close, isHint } = this.props
+    
 		return (
 			<div>
         <Windows visible={showBox} close={close}>
@@ -360,13 +372,18 @@ class App extends React.Component {
                       translateY(${activeImg.y + 'px'})
                       scale(${activeImg.scale})
                       rotate(${activeImg.rotate}deg)
-                    `
+                    `,
+                    transition: `${openAnime && this.transition} 0.3s linear`,
+                    WebkitTransition: `${openAnime && this.transition} 0.3s linear`,
+                    // MozTransition: `${openAnime && this.transition} 0.3s linear`,
+                    // OTransition: `${openAnime && this.transition} 0.3s linear`
                   }
                 }
               />
             ) : null}
           </section>
         </Windows>
+        <Messsage ref={this.message} extreme={extreme} isHint={isHint} />
 			</div>
 		);
 	}
