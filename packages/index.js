@@ -1,0 +1,1 @@
+export { default as ReactDarkPhoto } from './react-dark-photo'
