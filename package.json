@@ -1,13 +1,12 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.4",
   "name": "react-dark-photo",
   "private": false,
   "license": "MIT",
   "author": "laijianghao",
   "keyword": "react-dark-photo",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
+  "main": "lib/react-dark-photo.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Dark2017/react-dark-photo.git"

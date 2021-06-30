@@ -345,27 +345,27 @@ class App extends React.Component {
             </div>
           </section>
           <section className="content" slot="body">
-					{this.isImg ? (
-						<img
-							className="img"
-              id="imgRef"
-              ref={this.imgRef}
-							src={this.currentImg}
-              onWheel={this.mouseWheel.bind(this)}
-							onMouseDown={this.down.bind(this, this.currentAction)}
-              style={
-                {
-                  transform: `
-                    translateX(${activeImg.x + 'px'}) 
-                    translateY(${activeImg.y + 'px'})
-                    scale(${activeImg.scale})
-                    rotate(${activeImg.rotate}deg)
-                  `
+            {this.isImg ? (
+              <img
+                className="img"
+                id="imgRef"
+                ref={this.imgRef}
+                src={this.currentImg}
+                onWheel={this.mouseWheel.bind(this)}
+                onMouseDown={this.down.bind(this, this.currentAction)}
+                style={
+                  {
+                    transform: `
+                      translateX(${activeImg.x + 'px'}) 
+                      translateY(${activeImg.y + 'px'})
+                      scale(${activeImg.scale})
+                      rotate(${activeImg.rotate}deg)
+                    `
+                  }
                 }
-              }
-						/>
-					) : null}
-				</section>
+              />
+            ) : null}
+          </section>
         </Windows>
 			</div>
 		);

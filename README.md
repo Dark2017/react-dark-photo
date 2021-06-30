@@ -19,6 +19,45 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 - GitHub地址：https://github.com/Dark2017/react-dark-photo
 - vue同款：https://github.com/Dark2017/vue-dark-photo
 
+# 安装使用说明
+```
+npm i react-dark-photo
+
+import { ReactDarkPhoto } from 'react-dark-photo'
+
+例1：
+var imgData = 'xxx'
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showBox: true
+    }
+  }
+  close = () => {
+    this.setState({
+      showBox: false
+    })
+  }
+  open = () => {
+    this.setState({
+      showBox: true
+    })
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.open}>open</button>
+        <ReactDarkPhoto 
+          showBox={this.state.showBox}
+          imgData={imgData}
+          close={this.close}
+        />
+      </div>
+    )
+  }
+}
+```
 
 
 # api
@@ -29,7 +68,7 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 | --- | --- | --- | ---
 | imgData | string | 图片地址(url) | -
 | imgArr | Array | 图片地址(数组) | -
-| isHint | Boolean | 是否展示提示(第一张或最后一张) | true
+| showBox | Boolean | 控制图片显隐 | false
 | customAction | Object | 自定义操作栏 | null
 
 ## customAction
@@ -47,24 +86,12 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 | nextCard | Boolean | 是否需要下一张 | true
 | mouseWheel | Boolean | 是否需要滚轮缩放 | true
 | mouseDown | Boolean | 是否需要拖拽功能 | true
-| custom | Array | 自定义操作栏 | -
-
-## custom
-
-| 属性值 |  类型 | 描述 | 默认值 | 
-| --- | --- | --- | ---
-| title | String | 悬浮标题 | -
-| onClick | function | 点击回调 | -
-| style | Object | 操作按钮样式 | -
-| content | String | 操作按钮内容 | -
 
 ## 事件
 
 | 事件名 |  说明 | 回调参数
 | --- | --- | ---
-| publish | 打印后的回调 | 打印的内容
-| close | 关闭后的回调 | -
-
+| close | 关闭回调 | -
 
 ## 注意
 
