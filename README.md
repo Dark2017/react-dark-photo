@@ -20,6 +20,7 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 - vue同款：https://github.com/Dark2017/vue-dark-photo
 
 # 安装使用说明
+[![react-dark-photo](https://nodei.co/npm/react-dark-photo.png)](https://npmjs.com/package/react-dark-photo)
 ```
 npm i react-dark-photo
 
