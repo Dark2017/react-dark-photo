@@ -69,8 +69,9 @@ export default class App extends React.Component {
 | --- | --- | --- | ---
 | imgData | string | 图片地址(url) | -
 | imgArr | Array | 图片地址(数组) | -
-| showBox | Boolean | 控制图片显隐 | false
+| showBox | Boolean | 控制图片预览器显隐 | false
 | customAction | Object | 自定义操作栏 | null
+| isHint | Boolean | 是否展示提示(第一张或最后一张) | true
 
 ## customAction
 

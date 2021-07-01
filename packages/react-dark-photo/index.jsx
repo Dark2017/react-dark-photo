@@ -4,59 +4,63 @@ import "./style/style.less";
 import print from "./utils/print";
 import { downloadFileByURL } from "./utils/download";
 import { suffix_photo_list, message_text } from "./utils/constart";
-import Windows from '../react-dark-photo/components/windows/app.jsx'
-import Messsage from '../react-dark-photo/components/message/app.jsx'
+import Windows from "../react-dark-photo/components/windows/app.jsx";
+import Messsage from "../react-dark-photo/components/message/app.jsx";
 
 class App extends React.Component {
-  imgRef = React.createRef()
-  message = React.createRef()
+	imgRef = React.createRef();
+	message = React.createRef();
 
-  get currentImg() {
-    const { imgData, imgArr } = this.props
-    const { index } = this.state
-    return imgData ? imgData : imgArr[index]
-  }
+	get currentImg() {
+		const { imgData, imgArr } = this.props;
+		const { index } = this.state;
+		return imgData ? imgData : imgArr[index];
+	}
 
-  get currentLength() {
-    const { imgData, imgArr,  } = this.props
-    const { index } = this.state
-    return imgData ? imgData.length : imgArr[index].length
-  }
+	get currentLength() {
+		const { imgData, imgArr } = this.props;
+		const { index } = this.state;
+		return imgData ? imgData.length : imgArr[index].length;
+	}
 
-  get idx() {
-    return this.currentImg.lastIndexOf(".")
-  }
+	get idx() {
+		return this.currentImg.lastIndexOf(".");
+	}
 
-  get suffixName() {
-    console.log(this.currentImg,'-this.currentImg-');
-    return this.currentImg && this.currentImg.substring(this.idx + 1, this.currentLength)
-  }
+	get suffixName() {
+		console.log(this.currentImg, "-this.currentImg-");
+		return (
+			this.currentImg &&
+			this.currentImg.substring(this.idx + 1, this.currentLength)
+		);
+	}
 
-  get isImg() {
-    return suffix_photo_list[this.suffixName]
-  }
+	get isImg() {
+		return suffix_photo_list[this.suffixName];
+	}
 
-  get currentAction() {
-    const { defaultAction } = this.state
-    const { customAction } = this.props
-    return customAction ? Object.assign(defaultAction, customAction) : defaultAction
-  }
+	get currentAction() {
+		const { defaultAction } = this.state;
+		const { customAction } = this.props;
+		return customAction
+			? Object.assign(defaultAction, customAction)
+			: defaultAction;
+	}
 
-  get lastCard() {
-    const { imgData, imgArr } = this.props
-    return !imgData && imgArr.length >= 2 && this.currentAction.lastCard
-  }
+	get lastCard() {
+		const { imgData, imgArr } = this.props;
+		return !imgData && imgArr.length >= 2 && this.currentAction.lastCard;
+	}
 
-  get nextCard() {
-    const { imgData, imgArr} = this.props
-    return !imgData && imgArr.length >= 2 && this.currentAction.nextCard
-  }
+	get nextCard() {
+		const { imgData, imgArr } = this.props;
+		return !imgData && imgArr.length >= 2 && this.currentAction.nextCard;
+	}
 
-  get transition() {
-    const { isAnimation } = this.props
-    return isAnimation ? "all" : "none";
-  }
-
+	get transition() {
+		const { isAnimation } = this.props;
+		return isAnimation ? "all" : "none";
+	}
 
 	constructor(props) {
 		super(props);
@@ -97,7 +101,7 @@ class App extends React.Component {
 			});
 			this.reduction();
 		} else {
-      this.message.current.messageShow(message_text["first"])
+			this.message.current.messageShow(message_text["first"]);
 		}
 	};
 
@@ -109,38 +113,38 @@ class App extends React.Component {
 			index = index + 1;
 			this.setState({
 				index,
-        openAnime: false
+				openAnime: false,
 			});
 			this.reduction();
 		} else {
-      this.message.current.messageShow(message_text["last"])
+			this.message.current.messageShow(message_text["last"]);
 		}
 	};
 
-  // 放大
-  enlarge = () => {
-    if (!this.currentAction.mouseWheel) return;
+	// 放大
+	enlarge = () => {
+		if (!this.currentAction.mouseWheel) return;
 
-    const activeImg = { ...this.state.activeImg }
+		const activeImg = { ...this.state.activeImg };
 
-    let scale = activeImg.scale;
+		let scale = activeImg.scale;
 
-    scale += 0.1;
+		scale += 0.1;
 
-    if (scale >= 5) {
-      scale = 5;
-    }
+		if (scale >= 5) {
+			scale = 5;
+		}
 
-    activeImg.scale = scale;
+		activeImg.scale = scale;
 
 		this.setState({
 			activeImg,
 		});
-  }
+	};
 
 	// 缩小
 	narrow = () => {
-    if (!this.currentAction.mouseWheel) return;
+		if (!this.currentAction.mouseWheel) return;
 
 		const activeImg = { ...this.state.activeImg };
 
@@ -152,7 +156,7 @@ class App extends React.Component {
 			scale = 0.1;
 		}
 
-    activeImg.scale = scale;
+		activeImg.scale = scale;
 
 		this.setState({
 			activeImg,
@@ -200,7 +204,7 @@ class App extends React.Component {
 	down = (currentAction, e) => {
 		if (!currentAction.mouseDown) return;
 
-		const activeImg  = { ...this.state.activeImg };
+		const activeImg = { ...this.state.activeImg };
 
 		let downX = e.pageX;
 
@@ -247,143 +251,128 @@ class App extends React.Component {
 
 	// 打印
 	publish = () => {
-    print(document.getElementById('imgRef'))
+		print(document.getElementById("imgRef"));
 	};
 
-  
 	render() {
 		const { activeImg, openAnime, extreme } = this.state;
-    const { showBox, close, isHint } = this.props
-    
+		const { showBox, close, isHint } = this.props;
+
 		return (
 			<div>
-        <Windows visible={showBox} close={close}>
-          <section className="header-photo" slot="footer">
-            <div className="head-content">
-              <div className="tools-wrap">
-                <div className="photo-tools">
-                  <abbr title="上一张">
-                    {this.lastCard ? (
-                      <span
-                        onClick={this.left}
-                        className="iconfont icon-arrow-left-bold icon"
-                      ></span>
-                    ) : null}
-                  </abbr>
-                  <abbr title="缩小">
-                    {
-                      this.currentAction.narrow ? 
-                        <span
-                        onClick={this.narrow}
-                        className="iconfont icon-zoom-in icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="实际大小">
-                    {
-                      this.currentAction.reduction ? 
-                      <span
-                      onClick={this.reduction}
-                      className="iconfont icon-fullscreen-expand icon"
-                    ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="放大">
-                    {
-                      this.currentAction.enlarge ?
-                        <span
-                        onClick={this.enlarge}
-                        className="iconfont icon-zoom-out icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="逆时针旋转">
-                    {
-                      this.currentAction.leftRotate ?
-                        <span
-                        onClick={this.rotate.bind(this, "right")}
-                        style={{
-                          transform: "rotateY(180deg)",
-                          display: "inline-block",
-                        }}
-                        className="iconfont icon-refresh icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="顺时针旋转">
-                    {
-                      this.currentAction.leftRotate ?
-                        <span
-                        onClick={this.rotate.bind(this, "left")}
-                        className="iconfont icon-refresh icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="下载">
-                    {
-                      this.currentAction.downloadFile ? 
-                        <span
-                        onClick={this.downloadFile.bind(this, this.currentImg)}
-                        className="iconfont icon-download icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="打印">
-                    {
-                      this.currentAction.publish ? 
-                        <span
-                        onClick={this.publish}
-                        className="iconfont icon-print icon"
-                      ></span>
-                      : null
-                    }
-                  </abbr>
-                  <abbr title="下一张">
-                    {this.nextCard ? (
-                      <span
-                        onClick={this.right}
-                        className="iconfont icon-arrow-right-bold icon"
-                      ></span>
-                    ) : null}
-                  </abbr>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="content" slot="body">
-            {this.isImg ? (
-              <img
-                className="img"
-                id="imgRef"
-                ref={this.imgRef}
-                src={this.currentImg}
-                onWheel={this.mouseWheel.bind(this)}
-                onMouseDown={this.down.bind(this, this.currentAction)}
-                style={
-                  {
-                    transform: `
-                      translateX(${activeImg.x + 'px'}) 
-                      translateY(${activeImg.y + 'px'})
+				<Windows visible={showBox} close={close}>
+					<section className="header-photo" slot="footer">
+						<div className="head-content">
+							<div className="tools-wrap">
+								<div className="photo-tools">
+									<abbr title="上一张">
+										{this.lastCard ? (
+											<span
+												onClick={this.left}
+												className="iconfont icon-arrow-left-bold icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="缩小">
+										{this.currentAction.narrow ? (
+											<span
+												onClick={this.narrow}
+												className="iconfont icon-zoom-in icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="实际大小">
+										{this.currentAction.reduction ? (
+											<span
+												onClick={this.reduction}
+												className="iconfont icon-fullscreen-expand icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="放大">
+										{this.currentAction.enlarge ? (
+											<span
+												onClick={this.enlarge}
+												className="iconfont icon-zoom-out icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="逆时针旋转">
+										{this.currentAction.leftRotate ? (
+											<span
+												onClick={this.rotate.bind(this, "right")}
+												style={{
+													transform: "rotateY(180deg)",
+													display: "inline-block",
+												}}
+												className="iconfont icon-refresh icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="顺时针旋转">
+										{this.currentAction.leftRotate ? (
+											<span
+												onClick={this.rotate.bind(this, "left")}
+												className="iconfont icon-refresh icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="下载">
+										{this.currentAction.downloadFile ? (
+											<span
+												onClick={this.downloadFile.bind(this, this.currentImg)}
+												className="iconfont icon-download icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="打印">
+										{this.currentAction.publish ? (
+											<span
+												onClick={this.publish}
+												className="iconfont icon-print icon"
+											></span>
+										) : null}
+									</abbr>
+									<abbr title="下一张">
+										{this.nextCard ? (
+											<span
+												onClick={this.right}
+												className="iconfont icon-arrow-right-bold icon"
+											></span>
+										) : null}
+									</abbr>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section className="content" slot="body">
+						{this.isImg ? (
+							<img
+								className="img"
+								id="imgRef"
+								ref={this.imgRef}
+								src={this.currentImg}
+								onWheel={this.mouseWheel.bind(this)}
+								onMouseDown={this.down.bind(this, this.currentAction)}
+								style={{
+									transform: `
+                      translateX(${activeImg.x + "px"}) 
+                      translateY(${activeImg.y + "px"})
                       scale(${activeImg.scale})
                       rotate(${activeImg.rotate}deg)
                     `,
-                    transition: `${openAnime && this.transition} 0.3s linear`,
-                    WebkitTransition: `${openAnime && this.transition} 0.3s linear`,
-                    // MozTransition: `${openAnime && this.transition} 0.3s linear`,
-                    // OTransition: `${openAnime && this.transition} 0.3s linear`
-                  }
-                }
-              />
-            ) : null}
-          </section>
-        </Windows>
-        <Messsage ref={this.message} extreme={extreme} isHint={isHint} />
+									transition: `${openAnime && this.transition} 0.3s linear`,
+									WebkitTransition: `${
+										openAnime && this.transition
+									} 0.3s linear`,
+									// MozTransition: `${openAnime && this.transition} 0.3s linear`,
+									// OTransition: `${openAnime && this.transition} 0.3s linear`
+								}}
+							/>
+						) : null}
+					</section>
+				</Windows>
+				<Messsage ref={this.message} extreme={extreme} isHint={isHint} />
 			</div>
 		);
 	}

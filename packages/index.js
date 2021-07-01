@@ -1,1 +1,1 @@
-export { default as ReactDarkPhoto } from './react-dark-photo'
+export { default as ReactDarkPhoto } from './react-dark-photo';
