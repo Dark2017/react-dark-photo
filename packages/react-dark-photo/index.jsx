@@ -6,6 +6,7 @@ import { downloadFileByURL } from "./utils/download";
 import { suffix_photo_list, message_text } from "./utils/constart";
 import Windows from "../react-dark-photo/components/windows/app.jsx";
 import Messsage from "../react-dark-photo/components/message/app.jsx";
+import Wave from "../react-dark-photo/components/wave/app.jsx";
 
 class App extends React.Component {
 	imgRef = React.createRef();
@@ -256,11 +257,16 @@ class App extends React.Component {
 
 	render() {
 		const { activeImg, openAnime, extreme } = this.state;
-		const { showBox, close, isHint } = this.props;
+		const { showBox, close, isHint, ifWave } = this.props;
 
 		return (
 			<div>
 				<Windows visible={showBox} close={close}>
+				{/* {
+					ifWave ? (
+						<Wave/>
+					) : null
+				} */}
 					<section className="header-photo" slot="footer">
 						<div className="head-content">
 							<div className="tools-wrap">
@@ -373,6 +379,7 @@ class App extends React.Component {
 					</section>
 				</Windows>
 				<Messsage ref={this.message} extreme={extreme} isHint={isHint} />
+				<Wave></Wave>
 			</div>
 		);
 	}

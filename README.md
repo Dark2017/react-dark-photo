@@ -72,6 +72,7 @@ export default class App extends React.Component {
 | showBox | Boolean | 控制图片预览器显隐 | false
 | customAction | Object | 自定义操作栏 | null
 | isHint | Boolean | 是否展示提示(第一张或最后一张) | true
+| ifWave | Boolean | 是否点击波纹特效 | false
 
 ## customAction
 

@@ -29,10 +29,10 @@ class App extends React.Component{
   }
 
   render() {
-    const { showBox, imgArr, isAnimation } = this.state
+    const { showBox, imgArr } = this.state
     return (
       <div>
-        <button onClick={this.open}>11</button>
+        <button onClick={this.open}>open</button>
         <ReactDarkPhoto 
           showBox={showBox}
           // imgData={imgData}
@@ -40,6 +40,7 @@ class App extends React.Component{
           close={this.close}
           isAnimation={true}
           isHint={true}
+          ifWave={true}
         />
       </div>
     )

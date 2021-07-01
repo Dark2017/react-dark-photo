@@ -1,0 +1,20 @@
+.waves {
+  .wave {
+    position: fixed;
+    pointer-events: none; // 点击事件穿透，使得鼠标点击可以穿透波纹，兼容ie11及以上
+    @keyframes wave {
+      to {
+        //波纹逐渐扩散变大变透明
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+    .wave-item {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 100%;
+      animation: wave forwards ease-out;
+    }
+  }
+}
