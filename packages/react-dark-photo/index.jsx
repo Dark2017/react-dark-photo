@@ -262,11 +262,6 @@ class App extends React.Component {
 		return (
 			<div>
 				<Windows visible={showBox} close={close}>
-				{/* {
-					ifWave ? (
-						<Wave/>
-					) : null
-				} */}
 					<section className="header-photo" slot="footer">
 						<div className="head-content">
 							<div className="tools-wrap">
@@ -379,7 +374,7 @@ class App extends React.Component {
 					</section>
 				</Windows>
 				<Messsage ref={this.message} extreme={extreme} isHint={isHint} />
-				<Wave></Wave>
+				{ifWave ? <Wave /> : null}
 			</div>
 		);
 	}
