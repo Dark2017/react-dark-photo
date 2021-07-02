@@ -24,7 +24,9 @@ https://dark2017.github.io/vue-dark-photo.github.io/
 ```
 npm i react-dark-photo
 
+// 引入组件和样式
 import { ReactDarkPhoto } from 'react-dark-photo'
+import 'react-dark-photo/lib/style.css'
 
 例1：
 var imgData = 'xxx'
