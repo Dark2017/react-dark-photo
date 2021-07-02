@@ -73,6 +73,7 @@ export default class App extends React.Component {
 | customAction | Object | 自定义操作栏 | null
 | isHint | Boolean | 是否展示提示(第一张或最后一张) | true
 | ifWave | Boolean | 是否点击波纹特效 | false
+| isAnimation | Boolean | 是否动画特效 | false
 
 ## customAction
 
