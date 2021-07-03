@@ -11,7 +11,7 @@ const spinner = ora('').start()
 spinner.start()
 // 先执行打包脚本
 const build_lib = async (srcipt) => {
-	startLog('==========开始执行==========')
+	startLog('>>>> 开始执行 <<<<')
 	const res = shell.exec(`${srcipt}`)
 	if (res.code === 0) {
 		successLog('项目打包成功!')
@@ -49,15 +49,15 @@ function set_version() {
 
 // 修改版本号
 function edit_verison(v) {
-	fs.readFile(package, 'utf8', async (err, data) => {
+	fs.readFile(package, 'utf8', (err, data) => {
 		if (err) {
 			errorLog('读取失败！')
 		} else {
 			const json = JSON.parse(data.toString())
 			json.version = v
-			await fs.writeFile(package, JSON.stringify(json, null, '\t'), (err) => {
-				if (err) {
-					errorLog('写入失败！原因：/n', err)
+			fs.writeFile(package, JSON.stringify(json, null, '\t'), (e) => {
+				if (e) {
+					errorLog('写入失败！原因：/n', e)
 				}
 			})
 		}
@@ -65,6 +65,7 @@ function edit_verison(v) {
 }
 
 // 发布npm
+// npm 登录一次后会把token留在配置文件
 function publish_npm() {
   shell.exec('npm publish')
 }

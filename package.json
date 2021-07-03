@@ -17,7 +17,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"serve": "vite preview",
-		"lib": "npm login && node build/build.js"
+		"lib": "node build/build.js"
 	},
 	"dependencies": {
 		"file-saver": "^2.0.5",
