@@ -1,44 +1,44 @@
 {
-  "version": "1.0.7",
-  "name": "react-dark-photo",
-  "private": false,
-  "license": "MIT",
-  "author": "laijianghao",
-  "keyword": "react-dark-photo",
-  "files": [
-    "lib"
-  ],
-  "main": "lib/react-dark-photo.umd.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Dark2017/react-dark-photo.git"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "lib": "node build/build.js"
-  },
-  "dependencies": {
-    "file-saver": "^2.0.5",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
-  },
-  "devDependencies": {
-    "chalk": "^4.1.1",
-    "fs": "0.0.1-security",
-    "inquirer": "^8.1.1",
-    "less": "^4.1.1",
-    "less-loader": "^10.0.0",
-    "log-symbols": "^5.0.0",
-    "ora": "^5.4.1",
-    "path": "^0.12.7",
-    "shelljs": "^0.8.4",
-    "vite": "^2.3.8"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+	"version": "1.0.7",
+	"name": "react-dark-photo",
+	"private": false,
+	"license": "MIT",
+	"author": "laijianghao",
+	"keyword": "react-dark-photo",
+	"files": [
+		"lib"
+	],
+	"main": "lib/react-dark-photo.umd.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Dark2017/react-dark-photo.git"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"serve": "vite preview",
+		"lib": "npm login && node build/build.js"
+	},
+	"dependencies": {
+		"file-saver": "^2.0.5",
+		"react": "^17.0.0",
+		"react-dom": "^17.0.0"
+	},
+	"devDependencies": {
+		"chalk": "^4.1.1",
+		"fs": "0.0.1-security",
+		"inquirer": "^8.1.1",
+		"less": "^4.1.1",
+		"less-loader": "^10.0.0",
+		"log-symbols": "^4.1.0",
+		"ora": "^5.4.1",
+		"path": "^0.12.7",
+		"shelljs": "^0.8.4",
+		"vite": "^2.3.8"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	]
 }
