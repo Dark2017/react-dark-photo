@@ -9,7 +9,7 @@ const inquirer = require('inquirer')
 
 const spinner = ora('').start()
 spinner.start()
-// 先执行打包脚本
+// 执行打包脚本
 const build_lib = async (srcipt) => {
 	startLog('>>>> 开始执行 <<<<')
 	const res = shell.exec(`${srcipt}`)
