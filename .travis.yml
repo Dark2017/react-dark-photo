@@ -37,6 +37,7 @@ jobs:
       deploy:
         provider: npm
         email: '${U_EMAIL}'
+        
         skip_cleanup: true
         on:
           all_branches: true
