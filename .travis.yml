@@ -9,45 +9,45 @@ install:
 os:
   - linux
 
-stages:
-  - test
-  - name: deploy
+# stages:
+#   - test
+#   - name: deploy
   
-jobs:
-  include:
-    - stage: test
-      script:
-        - node --version
-        - npm --version
-        - echo "Testing Started ..."
-        - npm test
-        - echo "Testing Finished."
-    - stage: deploy
-      script:
-        - echo "NPM Deploying Started ..."
-        - git clone https://${GH_REF}
-        - cd react-dark-photo
-        - git branch
-        - git checkout travis
-        - git rebase master
-        - npm version patch 
-        - npm install --registry=https://registry.npm.taobao.org
-        - npm run build
-        - echo "NPM Building Finished."
-      deploy:
-        provider: npm
-        email: '${U_EMAIL}'
+# jobs:
+#   include:
+#     - stage: test
+#       script:
+#         - node --version
+#         - npm --version
+#         - echo "Testing Started ..."
+#         - npm test
+#         - echo "Testing Finished."
+#     - stage: deploy
+#       script:
+#         - echo "NPM Deploying Started ..."
+#         - git clone https://${GH_REF}
+#         - cd react-dark-photo
+#         - git branch
+#         - git checkout travis
+#         - git rebase master
+#         - npm version patch 
+#         - npm install --registry=https://registry.npm.taobao.org
+#         - npm run build
+#         - echo "NPM Building Finished."
+#       deploy:
+#         provider: npm
+#         email: '${U_EMAIL}'
         
-        skip_cleanup: true
-        on:
-          all_branches: true
-      after_script:
-        - git config user.name "Travis"
-        - git config user.email "${U_EMAIL}"
-        - git add .
-        - git commit -m "Travis CI Auto Builder"
-        - git status
-        - git push "https://${GH_TOKEN}@${GH_REF}" travis:travis
-branches:
-  only:
-    - master
+#         skip_cleanup: true
+#         on:
+#           all_branches: true
+#       after_script:
+#         - git config user.name "Travis"
+#         - git config user.email "${U_EMAIL}"
+#         - git add .
+#         - git commit -m "Travis CI Auto Builder"
+#         - git status
+#         - git push "https://${GH_TOKEN}@${GH_REF}" travis:travis
+# branches:
+#   only:
+#     - master
