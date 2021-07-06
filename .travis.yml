@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - 14
+branchs:
+  only:
+    - master
+stages:
+  - test
+  - name: deploy
+jobs:
+  include:
+    - stage: test
+      script:
+        - node --version
+        - npm --version
+        - echo "Testing Started ..."
+        - npm test
+        - echo "Testing Finished."
+    - stage: deploy
+      script:
+        - echo "NPM Deploying Started ..."
+      deploy:
+        provider: npm
+        email: '${U_EMAIL}'
+branches:
+  only:
+    - master
