@@ -1,12 +1,18 @@
 language: node_js
 node_js:
-  - 14
+  - '14'
 branchs:
   only:
     - master
+install:
+  - echo "install successed"
+os:
+  - linux
+
 stages:
   - test
   - name: deploy
+  
 jobs:
   include:
     - stage: test
