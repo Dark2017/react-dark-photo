@@ -40,7 +40,7 @@ jobs:
         - git add .
         - git commit -m "Travis CI Auto Builder"
         - git status
-        - git push "https://${GH_TOKEN}@${GH_REF}" travis_build:travis_build
+        - git push "https://${GH_TOKEN}@${GH_REF}" travis:travis
 branches:
   only:
     - master
