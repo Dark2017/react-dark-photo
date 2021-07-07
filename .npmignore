@@ -5,6 +5,8 @@ public
 /dist
 .svn
 .gitignore
+.travis.yml
+index.html
 
 # local env files
 .env.local
