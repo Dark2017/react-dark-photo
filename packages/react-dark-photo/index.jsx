@@ -4,9 +4,9 @@ import "./style/style.less";
 import print from "./utils/print";
 import { downloadFileByURL } from "./utils/download";
 import { suffix_photo_list, message_text } from "./utils/constart";
-import Windows from "../react-dark-photo/components/windows/app.jsx";
-import Messsage from "../react-dark-photo/components/message/app.jsx";
-import Wave from "../react-dark-photo/components/wave/app.jsx";
+import Windows from "./components/windows/app.jsx";
+import Messsage from "./components/message/app.jsx";
+import Wave from "./components/wave/app.jsx";
 
 class App extends React.Component {
 	imgRef = React.createRef();
