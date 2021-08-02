@@ -1,7 +1,5 @@
 # 先上效果图
 
-[![Build Status](https://travis-ci.org/Dark2017/react-dark-photo.svg?branch=master)](https://travis-ci.org/Dark2017/react-dark-photo)
-
 ![demo1.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3248bfb1e99e4e798c8fdb60cdf1dfbc~tplv-k3u1fbpfcp-watermark.image)
 
 ![demo2 .gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cfe5a9e79ed441c8e071838a0261bac~tplv-k3u1fbpfcp-watermark.image)
