@@ -27,7 +27,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		const { clickedCount } = this.state;
+		const { clickedCount, waves } = this.state;
 		let num = clickedCount;
 		document.getElementById("root").onclick = (e) => {
 			num++; // 统计点击次数
@@ -36,11 +36,18 @@ class App extends React.Component {
 			});
 			this.createWave(e);
 		};
+		setInterval(() => {
+			waves.length && waves.shift()
+			this.setState({
+				waves
+			})
+		}, 2000)
 		let lastCount = 0;
 		// 2秒内无点击清空waves，防止过多的dom累积占用内存
 		setInterval(() => {
 			if (lastCount === clickedCount) {
 				console.log("hi");
+				console.log(clickedCount);
 				this.setState({
 					waves: [],
 				});
