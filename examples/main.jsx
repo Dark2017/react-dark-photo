@@ -4,15 +4,15 @@ import ReactDarkPhoto from '../packages/react-dark-photo/index.jsx'
 import Wave from "../packages/react-dark-photo/components/wave/app";
 
 const imgData = "https://dark2017.github.io/vue-dark-photo.github.io/img/logo.82b9c7a5.png"
-const imgData1 = "https://camo.githubusercontent.com/6c28f1291fb0e2b404c4fd8393298c8602c62d7f3f862404dedbfc862d466c27/68747470733a2f2f6769746875622d726561646d652d73746174732e616e7572616768617a7261312e76657263656c2e6170702f6170693f757365726e616d653d4461726b323031372673686f775f69636f6e733d7472756526696e636c7564655f616c6c5f636f6d6d6974733d74727565267468656d653d7261646963616c"
-
+const imgData1 = "https://static.quanmaigo.com/i/b/78da7ec08eb733dff45ec99ae3b48f3e.png"
+const imgData2 = "https://i.picsum.photos/id/47/300/200.jpg?hmac=9EsCkmRWNWNcad1bCkYlIyvrH7KYONvdKRbWChvJ-Us"
 class App extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
       showBox: false,
       imgArr: [
-        imgData, imgData1
+        imgData, imgData1, imgData2
       ]
     }
   }

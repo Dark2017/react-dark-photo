@@ -29,14 +29,25 @@ class App extends React.Component {
 	}
 
 	get suffixName() {
-		console.log(this.currentImg, "-this.currentImg-");
+		let spacifyIdx = this.currentImg.lastIndexOf("?");
+
+		if (spacifyIdx > 0) {
+			return (
+				this.currentImg &&
+				this.currentImg.substring(this.idx + 1, spacifyIdx).toLowerCase()
+			);
+		}
+
 		return (
 			this.currentImg &&
-			this.currentImg.substring(this.idx + 1, this.currentLength)
+			this.currentImg
+				.substring(this.idx + 1, this.currentLength)
+				.toLowerCase()
 		);
 	}
 
 	get isImg() {
+		console.log(this.suffixName, "-this.suffixName-");
 		return suffix_photo_list[this.suffixName];
 	}
 
